@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" type="image/gif" href="star.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+    <style>
+        /* Styling the body */
+        @keyframes rgbEffect {
+    0% {
+        color: rgb(255, 0, 0); /* Red */
+    }
+    25% {
+        color: rgb(0, 255, 0); /* Green */
+    }
+    50% {
+        color: rgb(0, 0, 255); /* Blue */
+    }
+    75% {
+        color: rgb(255, 255, 0); /* Yellow */
+    }
+    100% {
+        color: rgb(255, 0, 255); /* Magenta */
+    }
+}
+        body {
+            background-color: black; /* Light blue background */
+            color: white; /* Dark blue text color */
+            font-family: 'Courier New', monospace; /* Using Arial font */
+            margin: 20px; /* Removes default margins */
+            padding: 20px; /* Adds padding around the body */
+            border: 0;
+            background-image: url(https://x.ai/bg/footer-gradient.webp); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            opacity: 1;
+            height: 100vh;
+        }
+
+        /* Styling the h1 element */
+        h1 {
+            text-align: center; /* Centers the text */
+            font-size: 36px; /* Increases font size */
+            font-weight: bold; /* Makes text bold */
+            font-family: "Courier New", monospace;
+            animation: rgbEffect 5s infinite alternate; /* Apply the animation */
+        }
+
+        /* Styling paragraphs */
+        p {
+            font-size: 18px; /* Makes text in paragraphs a bit larger */
+            line-height: 1.6; /* Increases line spacing for better readability */
+            text-align: center;
+            padding: 5px;
+            border: 2px solid;
+            border-color: grey;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Legend 4D</h1>
+    <p>I’m an avid gamer with a deep passion for exploring new virtual worlds and playing the latest titles, like the highly anticipated GTA 6 and many more. I'm currently on the lookout for a high-performance gaming laptop to enhance my gaming experience and dive into more immersive adventures. Alongside my love for gaming, I have a strong desire to expand my knowledge in programming and am eager to learn new programming languages. I’m also fascinated by the intricacies of medical science and have an insatiable curiosity about how the universe works, constantly seeking to understand more about the world around me. With a blend of tech interests and a thirst for knowledge, I’m excited to continue exploring and learning in these diverse fields.</p>
+    <script>
+        let titleText = "@legend4d";  // The text you want to display
+        let index = 1;  // Start typing from the second character
+        let speed = 250;  // Speed of typing (in milliseconds)
+        let deletingSpeed = 150;  // Speed of deleting (in milliseconds)
+        let isDeleting = false;
+    
+        // Function to animate the title (type or delete)
+        function typeWriter() {
+            if (!isDeleting) {
+                if (index <= titleText.length) {
+                    // Keep the first letter static and type the rest
+                    document.title = titleText.charAt(0) + titleText.slice(1, index);  
+                    index++;
+                    setTimeout(typeWriter, speed);  // Continue typing
+                } else {
+                    // Start deleting after typing is complete
+                    isDeleting = true;
+                    setTimeout(typeWriter, 1000);  // Pause before deleting
+                }
+            } else {
+                if (index > 1) {
+                    // Keep the first letter static and delete from the last character
+                    document.title = titleText.charAt(0) + titleText.slice(1, index - 1);
+                    index--;
+                    setTimeout(typeWriter, deletingSpeed);  // Continue deleting
+                } else {
+                    // Restart the typing process after deleting
+                    isDeleting = false;
+                    setTimeout(typeWriter, 500);  // Pause before starting typing again
+                }
+            }
+        }
+    
+        // Start the typewriter effect when the page loads
+        window.onload = function() {
+            typeWriter();
+        };
+    </script>
+       
+</body>
+</html>
