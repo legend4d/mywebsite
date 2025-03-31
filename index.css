@@ -96,7 +96,7 @@ body {
     border: 0;
     position: relative;
     /* Enable layering for video */
-    height: auto;
+    height: 100vh;
     /* Allow height to adjust based on content */
     overflow-y: auto;
     /* Allow vertical scrolling */
