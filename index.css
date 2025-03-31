@@ -77,6 +77,7 @@
     /* Optional: Add some padding */
     cursor: pointer;
     /* Optional: Show pointer on hover */
+    box-shadow: 0 0px white;
 }
 
 #audio-button-img {
@@ -141,10 +142,9 @@ h1 {
 
 #license {
     text-align: center;
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%);
+    border: yellow 5px transparent;
+    padding-top: 60vh;
+    padding-bottom: 10px;
 }
 
 .button-container {
@@ -171,7 +171,7 @@ button {
     background-color: transparent;
     border-radius: 15px;
     border-color: transparent;
-    box-shadow: 0 0px grey;
+    box-shadow: 0 2px white;
 }
 
 button:active {
