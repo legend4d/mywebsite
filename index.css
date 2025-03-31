@@ -133,15 +133,15 @@ h1 {
 #content {
     font-size: 18px;
     line-height: 1.6;
-    text-align: justify;
+    text-align: center;
     padding: 5px;
     border: 2px solid grey;
     border-radius: 10px;
-    width: 100vw;
 }
 
 #license {
     text-align: center;
+    position: fixed;
     bottom: 10px;
     left: 50%;
     transform: translate(-50%);
