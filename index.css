@@ -137,6 +137,7 @@ h1 {
     padding: 5px;
     border: 2px solid grey;
     border-radius: 10px;
+    width: 100vw;
 }
 
 #license {
