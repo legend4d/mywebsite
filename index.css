@@ -130,13 +130,21 @@ h1 {
 }
 
 /* Styling paragraphs */
-p {
+#content {
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
     padding: 5px;
     border: 2px solid grey;
     border-radius: 10px;
+}
+
+#license {
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .button-container {
