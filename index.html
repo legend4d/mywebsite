@@ -36,9 +36,9 @@
             top: 0;
             left: 0;
             width: 100%; /* Full width */
-            height: 100vh; /* Maintain aspect ratio */ 
+            height: 100vh; 
             object-fit: cover; /* Cover the entire area */
-            opacity: 0.7; /* Adjust transparency of the video */
+            opacity: 0.5; /* Adjust transparency of the video */
             z-index: -1; /* Place behind other content */
         }
 
@@ -60,6 +60,59 @@
             border: 2px solid grey;
             border-radius: 10px;
         }
+
+        .button-container {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center buttons horizontally */
+            gap: 20px; /* Space between buttons */
+        }
+
+        button {
+            position: relative; /* Enable positioning for glitch effect */
+            display: inline-block;
+            padding: 15px 15px;
+            font-size: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: transparent;
+            color: #fff;
+            background-color: transparent;
+            border-radius: 15px;
+            border-color: black;
+            box-shadow: 0 0px grey;
+        }
+
+        button:active{
+            transform: translateY(2px);
+            box-shadow: 0 0px #666;
+        }
+        .glitch-text {
+            position: absolute; /* Position the glitch text absolutely */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: inherit;
+        }
+
+        .real-text {
+           opacity: 0; /* Initially hidden */
+           transition: opacity 0.3s ease-in-out; /* Smooth transition for reveal */
+        }
+
+        button:hover .real-text {
+           opacity: 1; /* Show real text on hover */
+        }
+        
+        button:hover .glitch-text {
+           opacity: 0; /* Hide glitch text on hover */
+        }
+
     </style>
 </head>
 <body>
@@ -73,38 +126,106 @@
     <h1>Legend 4D</h1>
     <p>I’m an avid gamer with a deep passion for exploring new virtual worlds and playing the latest titles, like the highly anticipated GTA 6 and many more. I'm currently on the lookout for a high-performance gaming laptop to enhance my gaming experience and dive into more immersive adventures. Alongside my love for gaming, I have a strong desire to expand my knowledge in programming and am eager to learn new programming languages. I’m also fascinated by the intricacies of medical science and have an insatiable curiosity about how the universe works, constantly seeking to understand more about the world around me. With a blend of tech interests and a thirst for knowledge, I’m excited to continue exploring and learning in these diverse fields.</p>
 
+    <!-- Button Container -->
+    <div class="button-container">
+        <!-- Button with Glitch Effect -->
+        <button id="glitch-button-socials">
+            <span class="glitch-text"></span> <!-- Placeholder for glitch text -->
+            <span class="real-text">Socials</span> <!-- Actual text -->
+        </button>
+
+        <!-- Duplicate Button with Glitch Effect -->
+        <button id="glitch-button-about">
+            <span class="glitch-text"></span> <!-- Placeholder for glitch text -->
+            <span class="real-text">About Me</span> <!-- Actual text -->
+        </button>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="hover-sound">
+        <source src="hover-sound.wav" type="audio/wav"> <!-- Replace with your audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
+        <source src="background-music.mp3" type="audio/mpeg"> <!-- Replace with your audio file -->
+        Your browser does not support the audio element.
+
     <script>
-        let titleText = "@legend4d";  
-        let index = 1;  
-        let speed = 250;  
-        let deletingSpeed = 150;  
-        let isDeleting = false;
+        // Function to generate random glitch text
+        function generateGlitchText(originalText) {
+           const glitchSymbols = "!@#$%^&*()_+{}|<>?~"; // Symbols for glitch effect
+           let result = "";
+           for (let i = 0; i < originalText.length; i++) {
+               const randomSymbol = glitchSymbols[Math.floor(Math.random() * glitchSymbols.length)];
+               result += randomSymbol; // Append random symbol
+           }
+           return result; // Return generated glitch text
+       }
 
-        function typeWriter() {
-            if (!isDeleting) {
-                if (index <= titleText.length) {
-                    document.title = titleText.charAt(0) + titleText.slice(1, index);  
-                    index++;
-                    setTimeout(typeWriter, speed);
-                } else {
-                    isDeleting = true;
-                    setTimeout(typeWriter, 1000);
-                }
-            } else {
-                if (index > 1) {
-                    document.title = titleText.charAt(0) + titleText.slice(1, index - 1);
-                    index--;
-                    setTimeout(typeWriter, deletingSpeed);
-                } else {
-                    isDeleting = false;
-                    setTimeout(typeWriter, 500);
-                }
-            }
-        }
+       // Function to set up a button with glitch effect and sound
+       function setupButton(buttonId) {
+           const button = document.getElementById(buttonId);
+           const glitchText = button.querySelector('.glitch-text');
+           const realText = button.querySelector('.real-text');
 
-        window.onload = function() {
-            typeWriter();
-        };
+           const originalText = realText.textContent; // Get actual button text
+           glitchText.textContent = generateGlitchText(originalText); // Set initial glitch text
+
+           // Update glitch text every interval for dynamic effect
+           setInterval(() => {
+               if (glitchText.style.opacity !== "0") { // Only update if not hovered
+                   glitchText.textContent = generateGlitchText(originalText);
+               }
+           }, 100); // Update every interval
+
+           // Play Sound on Hover Once Per Hover
+           button.addEventListener("mouseenter", () => {
+               const audio = document.getElementById("hover-sound");
+               audio.currentTime = 0; // Reset audio to start
+               audio.play(); // Play sound
+           });
+       }
+
+       setupButton('glitch-button-socials');
+       setupButton('glitch-button-about');
+
+       // Typewriter effect for document title (existing functionality)
+       let titleText = "@legend4d";  
+       let index = 1;  
+       let speed = 250;  
+       let deletingSpeed = 150;  
+       let isDeleting = false;
+
+       function typeWriter() {
+           if (!isDeleting) {
+               if (index <= titleText.length) {
+                   document.title = titleText.charAt(0) + titleText.slice(1, index);  
+                   index++;
+                   setTimeout(typeWriter, speed);
+               } else {
+                   isDeleting = true;
+                   setTimeout(typeWriter, 1000);
+               }
+           } else {
+               if (index > 1) {
+                   document.title = titleText.charAt(0) + titleText.slice(1, index - 1);
+                   index--;
+                   setTimeout(typeWriter, deletingSpeed);
+               } else {
+                   isDeleting = false;
+                   setTimeout(typeWriter, 500);
+               }
+           }
+       }
+
+       window.onload = function() {
+           typeWriter();
+       };
+       
+       document.getElementById("background-music").volume = 0.5; // Set volume between 0.0 and 1.0
+
     </script>
 </body>
 </html>
