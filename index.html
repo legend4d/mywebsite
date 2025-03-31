@@ -26,8 +26,8 @@
             padding: 20px;
             border: 0;
             position: relative; /* Enable layering for video */
-            height: 100vh;
-            overflow: hidden; /* Prevent scrolling */
+            height: auto; /* Allow height to adjust based on content */
+            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         /* Video styling */
@@ -36,7 +36,8 @@
             top: 0;
             left: 0;
             width: 100%; /* Full width */
-            height: 100%; /* Full height */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 100vh; /* Limit height to viewport height */
             object-fit: cover; /* Cover the entire area */
             opacity: 0.7; /* Adjust transparency of the video */
             z-index: -1; /* Place behind other content */
