@@ -179,12 +179,12 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vb;
+    width: auto;
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(132, 0, 255, 0.4);
     text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -237,13 +237,16 @@ video {
 .button-container {
     display: flex;
     /* Use flexbox for centering */
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    /* Center buttons horizontally */
+    /* Center buttons vertically */
     gap: 20px;
     /* Space between buttons */
     position: relative;
     top: 50px;
+    border: red 2px transparent;
+    height: 500px;
 }
 
 button {
