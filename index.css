@@ -26,7 +26,7 @@
     font-size: 20px;
     margin-top: 20px;
     color: white;
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     position: fixed;
     /* Position it correctly */
     top: 55%;
@@ -91,7 +91,7 @@ body {
     background-color: black;
     /* Black background */
     color: white;
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     margin: 0px;
     padding: 20px;
     border: 3px red transparent;
@@ -132,7 +132,7 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
     /* Semi-transparent black background */
     z-index: 1000;
     /* Ensure it is above other content */
@@ -153,7 +153,6 @@ video {
     line-height: 1.6;
     text-align: justify;
     padding: 5px;
-    border: 2px solid grey;
     border-radius: 10px;
     position: relative;
     top: 5%;
@@ -169,7 +168,7 @@ video {
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
     /* Dark overlay */
-    z-index: 9998;
+    z-index: 9997;
     /* Below #aboutme but above other content */
     transition: opacity 0.5s ease-in-out;
 }
@@ -180,7 +179,7 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 80vb;
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 20px;
@@ -194,13 +193,37 @@ video {
 
 .close-popup {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 20px;
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
     cursor: pointer;
     color: white;
     background: none;
     border: none;
+    box-shadow: none;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    /* Stack icons vertically */
+    align-items: flex-start;
+    /* Align icons to the left */
+    gap: 15px;
+    /* Space between icons */
+    padding: 10px;
+}
+
+.social-icons a img {
+    width: 60px;
+    /* Adjust the size of the icon */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+    /* Slight zoom effect on hover */
 }
 
 #license {
@@ -209,12 +232,12 @@ video {
     width: 100%;
     position: relative;
     top: 26rem;
-
 }
 
 .button-container {
     display: flex;
     /* Use flexbox for centering */
+    flex-direction: column;
     justify-content: center;
     /* Center buttons horizontally */
     gap: 20px;
@@ -228,8 +251,8 @@ button {
     /* Enable positioning for glitch effect */
     display: inline-block;
     padding: 15px 15px;
-    font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-family: "Courier New", Courier, monospace;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -237,8 +260,9 @@ button {
     color: #fff;
     background-color: transparent;
     border-radius: 15px;
-    border-color: transparent;
-    box-shadow: 0 2px white;
+    border: none;
+    width: fit-content;
+    box-shadow: 0 1px white;
 }
 
 button:active {
