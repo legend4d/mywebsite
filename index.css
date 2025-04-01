@@ -27,11 +27,11 @@
     margin-top: 20px;
     color: white;
     font-family: 'Courier New', monospace;
-    position: absolute;
+    position: fixed;
     /* Position it correctly */
-    top: 50%;
+    top: 55%;
     /* Center vertically */
-    left: 50%;
+    left: 50.2%;
     /* Center horizontally */
     transform: translate(-50%, -50%);
     /* Adjust for centering */
@@ -61,9 +61,9 @@
 }
 
 #play-pause-button {
-    position: fixed;
+    position: absolute;
     /* Keep it in place even when scrolling */
-    top: 20px;
+    top: 5px;
     /* Distance from the top of the page */
     left: 20px;
     /* Distance from the left of the page */
@@ -94,7 +94,7 @@ body {
     font-family: 'Courier New', monospace;
     margin: 0px;
     padding: 20px;
-    border: 0;
+    border: 3px red transparent;
     position: relative;
     /* Enable layering for video */
     height: 100vh;
@@ -106,7 +106,7 @@ body {
 
 /* Video styling */
 video {
-    position: absolute;
+    position: fixed;
     /* Position the video absolutely */
     top: 0;
     left: 0;
@@ -121,8 +121,25 @@ video {
     /* Place behind other content */
 }
 
+/* Top Bar Styling */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* Adjust height of the top bar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black background */
+    z-index: 1000;
+    /* Ensure it is above other content */
+}
+
 /* Styling the h1 element */
-h1 {
+.topbar h1 {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
@@ -134,17 +151,21 @@ h1 {
 #content {
     font-size: 18px;
     line-height: 1.6;
-    text-align: center;
+    text-align: justify;
     padding: 5px;
     border: 2px solid grey;
     border-radius: 10px;
+    position: relative;
+    top: 5%;
 }
 
 #license {
     text-align: center;
-    border: yellow 5px transparent;
-    padding-top: 60vh;
-    padding-bottom: 10px;
+    border: yellow 2px transparent;
+    width: 100%;
+    position: relative;
+    top: 26rem;
+
 }
 
 .button-container {
@@ -154,6 +175,8 @@ h1 {
     /* Center buttons horizontally */
     gap: 20px;
     /* Space between buttons */
+    position: relative;
+    top: 50px;
 }
 
 button {

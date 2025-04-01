@@ -25,11 +25,15 @@ function setupButton(buttonId) {
         }
     }, 100); // Update every interval
 
-    // Play Sound on Hover Once Per Hover
+    // Play Sound on Hover Based on Audio State
     button.addEventListener("mouseenter", () => {
         const audio = document.getElementById("hover-sound");
-        audio.currentTime = 0; // Reset audio to start
-        audio.play(); // Play sound
+
+        // Only play the hover sound if the audio is playing
+        if (isAudioPlaying) {
+            audio.currentTime = 0; // Reset audio to start
+            audio.play(); // Play the sound
+        }
     });
 }
 
