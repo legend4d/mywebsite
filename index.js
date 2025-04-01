@@ -137,22 +137,20 @@ setInterval(checkAllAssetsLoaded, 100);
 const audioControlButton = document.getElementById("play-pause-button"); // Assuming your button has the ID 'play-pause-button'
 const audioButtonImg = document.getElementById("audio-button-img"); // Assuming the button image has ID 'audio-button-img'
 
-// Flag to track whether audio is playing or paused
+// Flag to track whether background music is playing or paused
 let isAudioPlaying = false;
 
-// Function to toggle audio (play/pause)
+// Function to toggle background music (play/pause)
 function toggleAudio() {
     if (isAudioPlaying) {
-        // Pause both audio elements
+        // Pause background music only
         backgroundMusic.pause();
-        hoverSound.pause();
         
         // Change button image to "play"
         audioButtonImg.src = "music-play.png"; // Replace this with the path to your play image
     } else {
-        // Play both audio elements
+        // Play background music only
         backgroundMusic.play();
-        hoverSound.play();
         
         // Change button image to "pause"
         audioButtonImg.src = "music-pause.png"; // Replace this with the path to your pause image
@@ -164,3 +162,4 @@ function toggleAudio() {
 
 // Add event listener for the button
 audioControlButton.addEventListener("click", toggleAudio);
+
