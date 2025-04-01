@@ -163,3 +163,47 @@ function toggleAudio() {
 // Add event listener for the button
 audioControlButton.addEventListener("click", toggleAudio);
 
+// Script for about and socials
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("overlay");
+
+    function setupPopup(buttonId, popupId, closeButtonId) {
+        const button = document.getElementById(buttonId);
+        const popup = document.getElementById(popupId);
+        const closeButton = document.getElementById(closeButtonId);
+
+        // Function to open popup
+        function openPopup() {
+            overlay.style.display = "block";
+            popup.style.display = "block";
+
+            setTimeout(() => {
+                overlay.style.opacity = "1";
+                popup.style.opacity = "1";
+            }, 10);
+        }
+
+        // Function to close popup
+        function closePopup() {
+            popup.style.opacity = "0";
+            overlay.style.opacity = "0";
+
+            setTimeout(() => {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            }, 500);
+        }
+
+        // Event Listeners
+        button.addEventListener("click", openPopup);
+        closeButton.addEventListener("click", closePopup);
+        overlay.addEventListener("click", closePopup); // Close if clicking outside
+    }
+
+    // Initialize popups for both About Me and Socials
+    setupPopup("glitch-button-about", "aboutme", "close-aboutme");
+    setupPopup("glitch-button-socials", "socials", "close-socials");
+});
+
+
+
