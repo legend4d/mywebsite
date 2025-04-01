@@ -180,6 +180,7 @@ video {
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
+    max-height: 100vh;
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 20px;
