@@ -114,7 +114,7 @@ function checkAllAssetsLoaded() {
     if (loadedAssets === totalAssets) {
         setTimeout(() => {
             // Fade out the loading screen
-            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingScreen = document.getElementById('loadingScreenWrapper');
             loadingScreen.style.opacity = '0'; // Fade out
             setTimeout(() => {
                 loadingScreen.style.display = 'none'; // Hide loading screen after fade
