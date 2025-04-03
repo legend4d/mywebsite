@@ -108,6 +108,33 @@ body {
     cursor: url(), auto;
 }
 
+/*global scroll bar theme */
+*::-webkit-scrollbar {
+    width: 10px;
+    /* Thin scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Translucent background */
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 0, 130, 0.5);
+    /* Purple translucent thumb */
+    border-radius: 10px;
+    border: 3px solid transparent;
+    /* Creates a "padding" effect */
+    background-clip: padding-box;
+    /* Ensures background doesn't extend beyond border */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(75, 0, 130, 0.7);
+    /* Darker purple on hover */
+}
+
 /* Video styling */
 video {
     position: fixed;
@@ -193,6 +220,8 @@ video {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     z-index: 9999;
+    max-height: 70%;
+    overflow-y: auto;
 }
 
 .close-popup {
@@ -235,7 +264,7 @@ video {
     border: yellow 2px transparent;
     width: 100%;
     position: relative;
-    top: 26rem;
+    top: 20rem;
 }
 
 .button-container {
